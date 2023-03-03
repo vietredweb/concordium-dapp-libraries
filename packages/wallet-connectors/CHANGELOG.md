@@ -17,7 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 -   `WalletConnectionDelegate`: Added `onConnected` event method and renamed `onDisconnect` to `onDisconnected`
     for consistency.
--   `WalletConnect`: Reordered constructor parameters to accommodate changes in `@concordium/react-components`.
+-   `WalletConnect`: Reordered constructor parameters to accommodate changes in `@aesirx-concordium/react-components`.
 -   `WalletConnector`: Made `getConnections` non-async.
 -   `WalletConnection`: Removed `getConnectedAccount` (the implementation methods stay but are no longer forced to be async).
 

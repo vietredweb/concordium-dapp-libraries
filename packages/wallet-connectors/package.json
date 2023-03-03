@@ -1,8 +1,8 @@
 {
-    "name": "@concordium/wallet-connectors",
+    "name": "@aesirx/wallet-connectors",
     "version": "0.2.0",
-    "description": "Utility interface for dApps to interact with wallets without depending on the underlying protocol and implementations for Concordium Browser Wallet and Wallet Connect v2.",
-    "author": "Concordium Software",
+    "description": "Aesirx wallet-connectors",
+    "author": "Aesirx",
     "license": "Apache-2.0",
     "browser": "./dist/index.js",
     "types": "./dist/index.d.ts",
