@@ -1,4 +1,4 @@
-import { WalletConnection } from '@concordium/wallet-connectors';
+import { WalletConnection } from '@aesirx-concordium/wallet-connectors';
 import { useEffect, useState } from 'react';
 
 /**

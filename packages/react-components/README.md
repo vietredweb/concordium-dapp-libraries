@@ -1,4 +1,4 @@
-# `@concordium/react-components`
+# `@aesirx-concordium/react-components`
 
 React components and hooks for implementing features commonly needed by dApps.
 The components only manage React state and pass data to application components - no actual HTML is being rendered.
@@ -10,7 +10,7 @@ on the expected network while taking into account that the user may decide to sw
 
 ### [`WithWalletConnector`](./src/WithWalletConnector.ts)
 
-Component that bridges [`@concordium/wallet-connectors`](../wallet-connectors) into a React context by
+Component that bridges [`@aesirx-concordium/wallet-connectors`](../wallet-connectors) into a React context by
 managing connection state and network information.
 This component significantly reduces the complexity of integrating with wallets,
 even if one only need to support a single protocol and network.
@@ -24,7 +24,7 @@ Initialize the network configuration and wrap the component `MyAppComponent` tha
 in `WithWalletConnector`:
 
 ```typescript jsx
-import { Network, WalletConnectionProps, WithWalletConnector } from '@concordium/react-components';
+import { Network, WalletConnectionProps, WithWalletConnector } from '@aesirx-concordium/react-components';
 
 const testnet: Network = {
     name: 'testnet',
@@ -77,7 +77,6 @@ Once established, the connection and its state are exposed in the following fiel
 
 All the fields hold the value `undefined` until the connection has been established and again after it's been disconnected.
 
-See [the sample dApp](../../samples/contractupdate/src/Root.tsx) for a complete example.
 
 ## Hooks
 
@@ -91,7 +90,7 @@ The button accepts all the `props` exposed by `WithWalletConnector`
 as well as the particular `ConnectorType` that it manages:
 
 ```typescript jsx
-import { ConnectorType, useWalletConnectorSelector, WalletConnectionProps } from '@concordium/react-components';
+import { ConnectorType, useWalletConnectorSelector, WalletConnectionProps } from '@aesirx-concordium/react-components';
 
 interface Props extends WalletConnectionProps {
     connectorType: ConnectorType;
@@ -109,7 +108,6 @@ export function WalletConnectorButton(props: Props) {
 
 It's important that the `ConnectorType` reference passed to the hook is fixed.
 
-See [the sample dApp](../../samples/contractupdate/src/WalletConnectorButton.tsx) for a complete example.
 
 ### [`useContractSelector`](./src/useContractSelector.ts)
 
@@ -119,7 +117,7 @@ _Example: Look up the info of a smart contract by its index specified in an inpu
 
 ```typescript jsx
 import React, { useState } from 'react';
-import { Network, useContractSelector, WalletConnection } from '@concordium/react-components';
+import { Network, useContractSelector, WalletConnection } from '@aesirx-concordium/react-components';
 
 interface Props {
     network: Network;
@@ -136,8 +134,6 @@ export function ContractStuff({ connection }: Props) {
     );
 }
 ```
-
-See [the sample dApp](../../samples/contractupdate/src/App.tsx) for a complete example.
 
 ## Build
 

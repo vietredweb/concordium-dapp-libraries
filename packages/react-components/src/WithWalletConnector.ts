@@ -1,5 +1,10 @@
 import { Component } from 'react';
-import { Network, WalletConnection, WalletConnectionDelegate, WalletConnector } from '@concordium/wallet-connectors';
+import {
+    Network,
+    WalletConnection,
+    WalletConnectionDelegate,
+    WalletConnector,
+} from '@aesirx-concordium/wallet-connectors';
 import { errorString } from './error';
 
 /**

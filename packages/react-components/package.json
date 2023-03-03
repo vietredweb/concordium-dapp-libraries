@@ -1,8 +1,8 @@
 {
-    "name": "@concordium/react-components",
+    "name": "@aesirx-concordium/react-components",
     "version": "0.2.0",
     "description": "Utility library of React components for building dApps that interact with the Concordium blockchain.",
-    "author": "Concordium Software",
+    "author": "AesirX Concordium Software",
     "license": "Apache-2.0",
     "browser": "./dist/index.js",
     "types": "./dist/index.d.ts",
@@ -14,13 +14,13 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/Concordium/concordium-dapp-libraries/tree/main/packages/react-components"
+        "url": "https://github.com/vietredweb/aesirx-concordium-dapp-libraries/tree/main/packages/react-components"
     },
     "scripts": {
         "build": "tsc"
     },
     "dependencies": {
-        "@concordium/wallet-connectors": "0.2.0"
+        "@aesirx-concordium/wallet-connectors": "0.2.0"
     },
     "devDependencies": {
         "@tsconfig/recommended": "^1.0.1",

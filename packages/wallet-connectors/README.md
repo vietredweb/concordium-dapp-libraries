@@ -1,4 +1,4 @@
-# `@concordium/wallet-connectors`
+# `@aesirx-concordium/wallet-connectors`
 
 Interfaces for interacting with wallets along with implementations for Browser Wallet and WalletConnect (v2).
 It’s written in TypeScript and has no dependencies to any UI framework.
@@ -46,7 +46,7 @@ import {
     WalletConnectConnector,
     WalletConnection,
     WalletConnectionDelegate,
-} from '@concordium/wallet-connectors';
+} from '@aesirx-concordium/wallet-connectors';
 
 class MyDelegate implements WalletConnectionDelegate {
     accounts = new Map<WalletConnection, string | undefined>();
@@ -105,7 +105,7 @@ where `connection` is either `browserWalletConnection` or `walletConnectConnecti
 ## Usage in React
 
 Use the React component [`WithWalletConnector`](../react-components/src/WithWalletConnector.ts) in
-[`@concordium/react-components`](../react-components)
+[`@aesirx-concordium/react-components`](../react-components)
 to easily integrate this library into a React app.
 
 ## Build
