@@ -1,24 +1,20 @@
-
-
-name: "npm"
+name: Build, test, and upload release [placeholder]
 
 on:
-  push:
-    tags:
-      - "*"
+    workflow_dispatch: # trigger manually
+        inputs:
+            tag_override:
+                description: "Tag"
+                type: string
+                required: false
+            # TODO Extract from appropriate changelog.
+            release_notes:
+                description: "Release notes"
+                type: string
+                required: true
 
 jobs:
-  publish:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 16
-      - run: npm i
-      - run: npm run lint
-      - run: CI=false npm run build
-      - uses: JS-DevTools/npm-publish@v1
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-          check-version: true
+  dummy:
+        runs-on: ubuntu-latest
+        steps:
+          - run: echo placeholder
