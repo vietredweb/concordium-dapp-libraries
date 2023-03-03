@@ -1,4 +1,4 @@
-name: Build, test, and upload release [placeholder]
+name: Build, test, and upload release
 
 on:
     workflow_dispatch: # trigger manually
@@ -13,8 +13,53 @@ on:
                 type: string
                 required: true
 
+env:
+    NODE_VERSION: "16.x"
+
 jobs:
-  dummy:
+    build:
         runs-on: ubuntu-latest
         steps:
-          - run: echo placeholder
+            - name: Resolve ref
+              run: |
+                ref="${{github.ref}}"
+                tag="${{github.event.inputs.tag_override}}"
+                [ -n "$tag" ] && ref="refs/tags/$tag"
+                echo "REF=$ref" >> $GITHUB_ENV
+            - name: Fail if not running from a tag
+              if: "!startsWith(env.REF , 'refs/tags/')"
+              run: exit 1
+            - name: Parse tag into env vars
+              # Skip 'refs/tags/' (10 chars), read until '/' ("package"), then read the rest ("version").
+              run: |
+                  echo "${{env.REF}}" |
+                    (read -n 10; read -d/ p; read v; echo "PACKAGE=$p"; echo "VERSION=$v") >> $GITHUB_ENV
+            - name: Checkout subproject
+              run: |
+                ref="${{env.REF}}"
+                git clone --branch="${ref:10}" "$GITHUB_SERVER_URL/$GITHUB_REPOSITORY" "${{runner.temp}}/repo"
+                cp -rT "${{runner.temp}}/repo/packages/${{env.PACKAGE}}" .
+            - name: debug
+              run: echo "PACKAGE=$PACKAGE, VERSION=$VERSION"; ls
+            - name: Check that version matches 'package.json' up to build version
+              run: |
+                  v="$(npm pkg get version | xargs)" # pipe through 'xargs' to remove quotes
+                  [[ "${{env.VERSION}}" = ${v}-* ]]
+            - name: Setup Node
+              uses: actions/setup-node@v3
+              with:
+                  node-version: "${{env.NODE_VERSION}}"
+            - name: Install dependencies
+              run: yarn install --immutable --check-cache
+            - name: Build and archive
+              run: |
+                yarn build
+                zip dist.zip ./dist/*
+            - name: Upload package as GitHub release
+              uses: softprops/action-gh-release@v1
+              with:
+                  tag_name: "${{env.REF}}"
+                  body: "${{github.event.inputs.release_notes}}"
+                  files: "./dist.zip"
+                  name: "${{env.PACKAGE}}: ${{env.VERSION}}"
+                  generate_release_notes: false # automatic mechanism doesn't limit changes to the target project
