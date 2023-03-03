@@ -16,7 +16,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@aesirx/react-components@workspace:packages/react-components"
   dependencies:
-    "@aesirx/wallet-connectors": 0.2.0
     "@tsconfig/recommended": ^1.0.1
     "@types/node": ^18.11.17
     "@types/react": ^18
@@ -27,7 +26,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aesirx/wallet-connectors@0.2.0, @aesirx/wallet-connectors@workspace:packages/wallet-connectors":
+"@aesirx/wallet-connectors@workspace:packages/wallet-connectors":
   version: 0.0.0-use.local
   resolution: "@aesirx/wallet-connectors@workspace:packages/wallet-connectors"
   dependencies:
@@ -38,6 +37,19 @@ __metadata:
     "@walletconnect/types": ^2.1.4
     prettier: 2.8.1
     typescript: ^4.9.4
+  languageName: unknown
+  linkType: soft
+
+"@aesirx@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "@aesirx@workspace:."
+  dependencies:
+    "@typescript-eslint/eslint-plugin": latest
+    "@typescript-eslint/parser": latest
+    eslint: latest
+    husky: ^8.0.0
+    lint-staged: ^13.1.0
+    pinst: ^3.0.0
   languageName: unknown
   linkType: soft
 
@@ -12798,19 +12810,6 @@ __metadata:
   checksum: 6a2bf167b3587d4df709b37d149ad0300692cc5deb510f89ac7bdc77c8738c9546ae3de9322b0968e1ed2b0e984571f5f55aae28fa7de4cfcb1bc5402a4e2be6
   languageName: node
   linkType: hard
-
-"root-workspace-0b6124@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "root-workspace-0b6124@workspace:."
-  dependencies:
-    "@typescript-eslint/eslint-plugin": latest
-    "@typescript-eslint/parser": latest
-    eslint: latest
-    husky: ^8.0.0
-    lint-staged: ^13.1.0
-    pinst: ^3.0.0
-  languageName: unknown
-  linkType: soft
 
 "run-parallel@npm:^1.1.9":
   version: 1.2.0
