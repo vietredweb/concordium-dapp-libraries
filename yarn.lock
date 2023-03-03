@@ -5,11 +5,11 @@ __metadata:
   version: 6
   cacheKey: 8
 
-"@aesirx-concordium/react-components@workspace:packages/react-components":
+"@aesirx/react-components@workspace:packages/react-components":
   version: 0.0.0-use.local
-  resolution: "@aesirx-concordium/react-components@workspace:packages/react-components"
+  resolution: "@aesirx/react-components@workspace:packages/react-components"
   dependencies:
-    "@aesirx-concordium/wallet-connectors": 0.2.0
+    "@aesirx/wallet-connectors": 0.2.0
     "@tsconfig/recommended": ^1.0.1
     "@types/node": ^18.11.17
     "@types/react": ^18
@@ -20,9 +20,9 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@aesirx-concordium/wallet-connectors@0.2.0, @aesirx-concordium/wallet-connectors@workspace:packages/wallet-connectors":
+"@aesirx/wallet-connectors@0.2.0, @aesirx/wallet-connectors@workspace:packages/wallet-connectors":
   version: 0.0.0-use.local
-  resolution: "@aesirx-concordium/wallet-connectors@workspace:packages/wallet-connectors"
+  resolution: "@aesirx/wallet-connectors@workspace:packages/wallet-connectors"
   dependencies:
     "@concordium/browser-wallet-api-helpers": ^2.0.0
     "@tsconfig/recommended": ^1.0.1

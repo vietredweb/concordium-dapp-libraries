@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { ConnectorType, WalletConnectionProps } from './WithWalletConnector';
-import { WalletConnection } from '@aesirx-concordium/wallet-connectors';
+import { WalletConnection } from '@aesirx/wallet-connectors';
 
 /**
  * The state of the a {@link useWalletConnectorSelector} instance.
