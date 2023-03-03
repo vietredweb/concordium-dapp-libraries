@@ -19,9 +19,7 @@
     "scripts": {
         "build": "tsc"
     },
-    "dependencies": {
-        "@aesirx/wallet-connectors": "0.2.0"
-    },
+  
     "devDependencies": {
         "@tsconfig/recommended": "^1.0.1",
         "@types/node": "^18.11.17",
