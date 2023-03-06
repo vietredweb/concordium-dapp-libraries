@@ -121,18 +121,16 @@ export class BrowserWalletConnector implements WalletConnector, WalletConnection
                 return this.client.sendTransaction(accountAddress, type, payload, parameters, schema, schemaVersion);
             }
             return this.client.sendTransaction(accountAddress, type, payload);
-        } catch (e) {
-            console.log('e', e);
-            throw new Error('errorne');
+        } catch (error: any) {
+            throw new Error(error);
         }
     }
 
     async signMessage(accountAddress: string, message: string): Promise<AccountTransactionSignature> {
         try {
             return this.client.signMessage(accountAddress, message);
-        } catch (e) {
-            console.log('e', e);
-            throw new Error('errorne');
+        } catch (error: any) {
+            throw new Error(error);
         }
     }
 }
