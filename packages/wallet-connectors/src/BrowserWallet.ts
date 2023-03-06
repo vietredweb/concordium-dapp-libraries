@@ -122,6 +122,7 @@ export class BrowserWalletConnector implements WalletConnector, WalletConnection
             }
             return this.client.sendTransaction(accountAddress, type, payload);
         } catch (error: any) {
+            console.log('errorerrorneee', error);
             throw new Error(error);
         }
     }
@@ -130,6 +131,7 @@ export class BrowserWalletConnector implements WalletConnector, WalletConnection
         try {
             return this.client.signMessage(accountAddress, message);
         } catch (error: any) {
+            console.log('errorerrorneee222', error);
             throw new Error(error);
         }
     }
