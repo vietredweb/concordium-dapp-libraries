@@ -112,17 +112,27 @@ export class BrowserWalletConnector implements WalletConnector, WalletConnection
         schema?: string,
         schemaVersion?: SchemaVersion
     ): Promise<string> {
-        if (
-            (type === AccountTransactionType.InitContract || type === AccountTransactionType.Update) &&
-            parameters !== undefined &&
-            schema !== undefined
-        ) {
-            return this.client.sendTransaction(accountAddress, type, payload, parameters, schema, schemaVersion);
+        try {
+            if (
+                (type === AccountTransactionType.InitContract || type === AccountTransactionType.Update) &&
+                parameters !== undefined &&
+                schema !== undefined
+            ) {
+                return this.client.sendTransaction(accountAddress, type, payload, parameters, schema, schemaVersion);
+            }
+            return this.client.sendTransaction(accountAddress, type, payload);
+        } catch (e) {
+            console.log('e', e);
+            throw new Error('errorne');
         }
-        return this.client.sendTransaction(accountAddress, type, payload);
     }
 
     async signMessage(accountAddress: string, message: string): Promise<AccountTransactionSignature> {
-        return this.client.signMessage(accountAddress, message);
+        try {
+            return this.client.signMessage(accountAddress, message);
+        } catch (e) {
+            console.log('e', e);
+            throw new Error('errorne');
+        }
     }
 }
