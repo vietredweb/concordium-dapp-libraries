@@ -20,6 +20,7 @@ const WALLET_CONNECT_SESSION_NAMESPACE = 'ccd';
 
 async function connect(client: ISignClient, chainId: string, cancel: () => void) {
     try {
+        console.log('chainId', chainId);
         const { uri, approval } = await client.connect({
             requiredNamespaces: {
                 ccd: {
@@ -37,6 +38,8 @@ async function connect(client: ISignClient, chainId: string, cancel: () => void)
     } catch (e) {
         // Ignore falsy errors.
         if (e) {
+            console.log('e', e);
+
             console.error(`WalletConnect client error: ${e}`);
         }
         cancel();
